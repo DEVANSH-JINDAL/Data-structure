@@ -29,7 +29,7 @@ struct bst* insert(int x, struct bst *root)
         struct bst *temp=insert(x,root->prev);
         if(root->prev==NULL)
         root->prev=temp;
-    }
+    } 
     else
     {
         struct bst *temp=insert(x,root->next);
