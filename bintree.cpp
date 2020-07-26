@@ -16,7 +16,6 @@ struct queue
 };
 struct queue* head=NULL;
 
-
 struct bin_tree* getnode(int x)
 {
     struct bin_tree *temp= new bin_tree();
@@ -89,16 +88,35 @@ void breadth(struct bin_tree* root)
 
 }
 
-
-
-void print(struct bin_tree *root)
+void preorder(struct bin_tree *root)
 {
 
     printf("%d ",root->data);
     if(root->prev!=NULL)
-    print(root->prev);
+    preorder(root->prev);
     if(root->next!=NULL)
-    print(root->next);
+    preorder(root->next);
+
+}
+void inorder(struct bin_tree *root)
+{
+
+
+    if(root->prev!=NULL)
+    inorder(root->prev);
+    printf("%d ",root->data);
+    if(root->next!=NULL)
+    inorder(root->next);
+
+}
+void postorder(struct bin_tree *root)
+{
+
+    if(root->prev!=NULL)
+    postorder(root->prev);
+    if(root->next!=NULL)
+    postorder(root->next);
+    printf("%d ",root->data);
 
 }
 
@@ -117,8 +135,13 @@ int main()
     root=insert(65,root);
     root=insert(0,root);
     root=insert(0,root);
-    print(root);
-    printf("\n");
+    printf("Preorder- ");
+    preorder(root);
+    printf("\nInorder/Sorted- ");
+    inorder(root);
+    printf("\nPostorder- ");
+    postorder(root);
+    printf("\nLevel 0 Traversal- ");
     breadth(root);
     return 0;
 
