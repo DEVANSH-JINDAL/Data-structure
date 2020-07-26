@@ -26,7 +26,7 @@ void insend(int x)
     while(temp->next!=0)
     {
         temp=temp->next;
-    }
+    } 
     temp->next=ptr;
 }
 
