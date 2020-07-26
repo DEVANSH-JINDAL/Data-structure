@@ -31,7 +31,7 @@ void rprint(struct Node* temp )
         return;
     rprint(temp->next);
     printf("%d",temp->data);
-}
+} 
 
 void rev(struct Node* temp)
 {
